@@ -4,6 +4,7 @@ if[not system"p";system"p 5010"]
 
 \l tick/u.q
 \d .u
+/ retur the log file
 ld:{if[not type key L::`$(-10_string L),string x;.[L;();:;()]];i::j::-11!(-2;L);if[0<=type i;-2 (string L)," is a corrupt log. Truncate to length ",(string last i)," and restart";exit 1];hopen L};
 tick:{init[];if[not min(`time`sym~2#key flip value@)each t;'`timesym];@[;`sym;`g#]each t;d::.z.D;if[l::count y;L::`$":",y,"/",x,10#".";l::ld d]};
 
@@ -16,7 +17,9 @@ if[system"t";
  if[not -16=type first first x;if[d<"d"$a:.z.P;.z.ts[]];a:"n"$a;x:$[0>type first x;a,x;(enlist(count first x)#a),x]];
  t insert x;if[l;l enlist (`upd;t;x);j+:1];}];
 
+/ zero latency
 if[not system"t";system"t 1000";
+    /each tick check for end of date()
  .z.ts:{ts .z.D};
  upd:{[t;x]ts"d"$a:.z.P;
  if[not -16=type first first x;a:"n"$a;x:$[0>type first x;a,x;(enlist(count first x)#a),x]];
