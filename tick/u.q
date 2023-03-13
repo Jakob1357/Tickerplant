@@ -1,6 +1,6 @@
 \d .u
 
-/ defines .u.t and .u.w
+/ defines .u.t (symbol lists of tables that the ticker is aware of) and .u.w (dictionary maps this tables to relevant subscribers information)
 init:{w::t!(count t::tables`.)#()}
 
 / clears subscriptions from .u.w
