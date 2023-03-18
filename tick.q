@@ -70,7 +70,7 @@ if[not system"t";system"t 1000";
     /each tick check for end of date()
     .z.ts:{ts .z.D};
     /check for end of date, add timestamp if not present , create tab from data and publish to RTS, send message to logfile , increment i;
-    upd:{[tab, data]
+    upd:{[tab;data]
         ts"d"$a:.z.P;
         if[not -16=type first first data;
             a:"n"$a;
